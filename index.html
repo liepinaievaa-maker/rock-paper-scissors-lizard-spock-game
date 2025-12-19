@@ -15,25 +15,32 @@
     <header> 
         <h1 class="heading"><i class="fa-solid fa-hand-peace"></i> Rock, Paper, Scissors, Lizard, Spock Game <i class="fa-solid fa-hand-lizard"></i></h1>
     </header>
+
 <div class="game-area">
 
     <div class="choices-area">
     <h2>Make your choice:</h2>
-    <button aria-label="Rock" data-choice="0" class="control">Rock</button>
-    <button aria-label="Paper" data-choice="1" class="control">Paper</button>
-    <button aria-label="Scissors" data-choice="2" class="control">Scissors</button>
-    <button aria-label="Lizard" data-choice="3" class="control">Lizard</button>
-    <button aria-label="Spock" data-choice="4" class="control">Spock</button>
+    <button aria-label="Rock" data-choice="0" class="control"> <i class="fa-solid fa-hand-back-fist"></i> Rock</button>
+    <button aria-label="Paper" data-choice="1" class="control"> <i class="fa-solid fa-hand"></i> Paper</button>
+    <button aria-label="Scissors" data-choice="2" class="control"> <i class="fa-solid fa-hand-scissors"></i> Scissors</button>
+    <button aria-label="Lizard" data-choice="3" class="control"> <i class="fa-solid fa-hand-lizard"></i> Lizard</button>
+    <button aria-label="Spock" data-choice="4" class="control"> <i class="fa-solid fa-hand-spock"></i> Spock</button>
     </div>
+
 
 <!-- Display Player and Computer Choices -->
     <div class="round-display">
-    <div>
+    <div class="choice">
         <p class="player-choice">You chose:</p>
+        <img id="player-image" src="assets/images/rock-paper-scissors-lizard-spock-clipart-lg.png" alt="Rock Paper Scissors Lizard Spock"/>
         <p id="player-choice">—</p>
     </div>
-    <div>
+    <div> 
+        <button aria-label="Start!" class="btn-start"> Let's Start! </button>
+    </div>
+    <div class="choice">
         <p class="computer-choice">Computer chose:</p>
+        <img id="computer-image" src="assets/images/rock-paper-scissors-lizard-spock-clipart-lg.png" alt="Rock Paper Scissors Lizard Spock"/>
         <p id="computer-choice">—</p>
     </div>
 </div>
@@ -53,9 +60,13 @@
 
 <!--Restart Game Button-->
     <div class="controls-area">
-    <button id="restart-btn">Restart Game</button>
+    <button aria-label="Restart Game" id="restart-btn">Restart Game</button>
 </div>
+
     </div>
     <script src="assets/js/script.js"></script>
+    <footer> 
+        <p>&copy; 2025 Rock Paper Scissors Lizard Spock Game</p>
+    </footer>
 </body>
 </html>
