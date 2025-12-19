@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&display=swap');
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+body {
+    font-family: 'Outfit', sans-serif;
+  width: 100%;
+  overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f0f0f0;
+}
+header {
+    background-color: #4A90E2;
+    color: white;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.heading {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 2.5rem;
+    margin: 0;
+}
+.game-area {
+    background-color: #ffffff;
+    border-radius: 10px;
+    width: 80%;
+    min-height: 80vh;
+    height: auto;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+.game-area p {
+    font-size: 1.5rem;
+    color: #333333;
+}
+.controls-area {
+    margin-top: 20px;
+}
+button.choice-btn {
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+button.choice-btn:hover {
+    background-color: #357ABD;
+}
+.score-area {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #555555;
+}
+#score {
+    color: #27AE60;
+    font-weight: bold;
+}
+.question-area {
+    font-size: 1.8rem;
+    margin-top: 20px;
+    color: #222222;
+}
+.question-area span {
+    padding: 0 10px;
+    font-weight: bold;
+}
+/* Responsive Design */
+@media (max-width: 600px) {
+    .heading {
+        font-size: 2rem;
+    }
+    .game-area {
+        width: 95%;
+        padding: 15px;
+    }
+    button.choice-btn {
+        padding: 8px 16px;
+        margin: 5px;
+        font-size: 0.9rem;
+    }
+    .question-area {
+        font-size: 1.5rem;
+    }
+}
+#incorrect {
+    color: #E74C3C;
+    font-weight: bold;
+}
+.answer-message {
+    display: none;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+.answer-message.show {
+    display: block;
+}
+.answer-message.correct {
+    color: #27AE60;
+}
+.answer-message.incorrect {
+    color: #E74C3C;
+}
+/* --------- Game layout */
+.game-area {
+    background-color: #E6ECF0;
+    box-sizing: border-box;
+    width: 85%;
+    height: 65vh;
+    max-height: 450px;
+    max-width: 830px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1%;
+}
+.question-area {
+    width: 50%;
+    font-size: 2rem;
+    margin: auto;
+    padding: 50px 0;
+}
+.question-area span {
+    padding: 0 15px;
+}
+.score-area {
+    margin: 5px auto;
+    width: 60%;
+    font-size: 1.2rem;
+}
+.controls-area {
+    width: 85%;
+    margin: 30px auto;
+}
+#score {
+    color: green;
+    font-weight: bold;
+}
+#incorrect {
+    color: red;
+    font-weight: bold;
+}
+.answer-message {
+    display: none;
+    font-size: 1rem;
+}
+#answer-box {
+    border: none;
+    color: #445361;
+    display: inline-block;
+    height: 40px;
+    padding: 0 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+}
