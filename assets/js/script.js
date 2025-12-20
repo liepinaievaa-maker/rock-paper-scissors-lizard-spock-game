@@ -24,6 +24,34 @@ let computerScore = 0;
 let tieScore = 0;
 let gameActive = false;
 
+let startBtnton;
+let restartButton;
+let playerChoiceImage;
+let computerChoiceImage;
+let roundInfo;
+let scoreInfo;
+let resultMessage;
+
+
+/**
+ * DOM Elements
+ */
+const controlButtons = document.querySelectorAll('.choice-button');
+const startBtn = document.querySelector('.btn-start');
+const restartBtn = document.querySelector('.btn-restart');
+
+const playerChoiceText = document.getElementById('player-choice-text');
+const computerChoiceText = document.getElementById('computer-choice-text');
+
+const roundDisplay = document.getElementById('round-display');
+const scoreDisplay = document.getElementById('score-display');
+
+const playerScoreEl = document.getElementById('player-score');
+const computerScoreEl = document.getElementById('computer-score');
+const tieScoreEl = document.getElementById('tie-score');
+
+const playerImageSrcEl = document.getElementById('player-choice-image');
+const computerImageSrcEl = document.getElementById('computer-choice-image');
 /**
  * Functions
  */
