@@ -46,6 +46,11 @@ function restartGame() {
     resultMessage.textContent = 'Game Restarted! Click Start to play again.';
     updateRoundInfo();
     updateScoreBoard();
+
+    playerImageSrc = 'assets/images/placeholder.png';
+    computerImageSrc = 'assets/images/placeholder.png';
+
+    enableChoiceButtons(false);
 }
 
 /**
@@ -54,8 +59,37 @@ function restartGame() {
 document.getElementById('start-button').addEventListener('click', startGame);
 document.getElementById('restart-button').addEventListener('click', restartGame);
 
-function runGame() {
+/**
+ * Main Game Logic
+ */
+ 
 
+function runGame(playerChoiceIndex) {
+    if (!gameActive) {
+        resultMessage.textContent = 'Please start the game first!';
+        return;
+    }
+
+    if (round > maxRounds) {
+        endGame();
+        return;
+    }
+    const playerChoice = choice[playerChoiceIndex];
+    const computerChoice = calculateCorrectAnswer ();
+
+    displayChoice(playerChoice, computerChoice);
+
+    const outcome = checkAnswer(playerChoice, computerChoice);
+    displayRoundResult(outcome, playerChoice, computerChoice);
+
+    updateScoreBoard();
+
+    if (round >= maxRounds) {
+        endGame();
+    } else {
+        round++;
+        updateRoundInfo();
+    }
 }
 
 function checkAnswer() {
