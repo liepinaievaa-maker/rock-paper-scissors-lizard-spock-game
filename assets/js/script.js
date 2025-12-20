@@ -53,11 +53,6 @@ function restartGame() {
     enableChoiceButtons(false);
 }
 
-/**
- * Event Listeners
- */
-document.getElementById('start-button').addEventListener('click', startGame);
-document.getElementById('restart-button').addEventListener('click', restartGame);
 
 /**
  * Main Game Logic
@@ -142,17 +137,51 @@ function displayRoundResult(outcome) {
         incrementTie();
     }   
 }
+function updateScoreBoard() { 
+    scoreInfo.textContent = `Score - You: ${playerScore} | Computer: ${computerScore} | Ties: ${tieScore}`;
+}
 
 function updateRoundInfo () {
- 
+    roundInfo.textContent = `Round ${round} of ${maxRounds}`;
 }
 
 function enableChoiceButtons() {
-
+    const buttons = document.querySelectorAll('.choice-button');
+    buttons.forEach(button => {
+        button.disabled = !gameActive;
+    });
 }
 /**
  * End Game
  */
 function endGame() { 
+    gameActive = false;
+    enableChoiceButtons(false);
+    if (playerScore > computerScore) {
+        resultMessage.textContent = `Congratulations! You Won the Game!(${playerScore} - ${computerScore})`;
+    } else if (computerScore > playerScore) {
+        resultMessage.textContent = `Sorry! You Lost the Game, Computer Won (${playerScore} - ${computerScore})!`;
+    } else {
+        resultMessage.textContent = `The Game is a Tie! Well Played (${playerScore} - ${computerScore})!`;
+    }
 }
 
+/**
+ * Event Listeners
+ */
+startBtnton = document.getElementById('start-button');
+restartButton = document.getElementById('restart-button');
+playerChoiceImage = document.getElementById('player-choice-image');
+computerChoiceImage = document.getElementById('computer-choice-image');
+roundInfo = document.getElementById('round-info');
+scoreInfo = document.getElementById('score-info');
+resultMessage = document.getElementById('result-message');
+
+controlButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+    const choiceIndex = Number(button.dataset.choiceIndex);
+    runGame(choiceIndex);
+    }
+    );
+});
+restartGame();
