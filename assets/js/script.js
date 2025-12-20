@@ -1,3 +1,20 @@
+/**  
+ * Game Choices
+*/
+const choice = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
+
+/**
+ * Add const what is stronger than what
+ */
+
+const beats = {
+    Rock : ['Scissors', 'Lizard'],
+    Paper : ['Rock', 'Spock'],
+    Scissors : ['Paper', 'Lizard'],
+    Lizard : ['Spock', 'Paper'],
+    Spock : ['Scissors', 'Rock']
+};
+
 /**
  * Functions
  */
