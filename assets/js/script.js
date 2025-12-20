@@ -8,11 +8,11 @@ const choice = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
  */
 
 const beats = {
-    Rock : ['Scissors', 'Lizard'],
-    Paper : ['Rock', 'Spock'],
-    Scissors : ['Paper', 'Lizard'],
-    Lizard : ['Spock', 'Paper'],
-    Spock : ['Scissors', 'Rock']
+    rock : ['scissors', 'lizard'],
+    paper : ['rock', 'spock'],
+    scissors : ['paper', 'lizard'],
+    lizard : ['spock', 'paper'],
+    spock : ['scissors', 'rock']
 };
 /**
  * Game Variables
@@ -24,24 +24,22 @@ let computerScore = 0;
 let tieScore = 0;
 let gameActive = false;
 
-let startBtnton;
-let restartButton;
+
 let playerChoiceImage;
 let computerChoiceImage;
 let roundInfo;
-let scoreInfo;
 let resultMessage;
 
 
 /**
  * DOM Elements
  */
-const controlButtons = document.querySelectorAll('.choice-button');
-const startBtn = document.querySelector('.btn-start');
-const restartBtn = document.querySelector('.btn-restart');
+const controlButtons = document.querySelectorAll('.control');
+const startButton = document.querySelector('.btn-start');
+const restartButton = document.getElementById('restart-btn');
 
-const playerChoiceText = document.getElementById('player-choice-text');
-const computerChoiceText = document.getElementById('computer-choice-text');
+const playerChoiceText = document.getElementById('player-choice');
+const computerChoiceText = document.getElementById('computer-choice');
 
 const roundDisplay = document.getElementById('round-display');
 const scoreDisplay = document.getElementById('score-display');
@@ -50,8 +48,8 @@ const playerScoreEl = document.getElementById('player-score');
 const computerScoreEl = document.getElementById('computer-score');
 const tieScoreEl = document.getElementById('tie-score');
 
-const playerImageSrcEl = document.getElementById('player-choice-image');
-const computerImageSrcEl = document.getElementById('computer-choice-image');
+const playerImageSrcEl = document.getElementById('player-image');
+const computerImageSrcEl = document.getElementById('computer-image');
 /**
  * Functions
  */
@@ -70,13 +68,12 @@ function restartGame() {
     playerChoiceImage.src = '';
     computerChoiceImage.src = '';
     roundInfo.textContent = '';
-    scoreInfo.textContent = '';
     resultMessage.textContent = 'Game Restarted! Click Start to play again.';
     updateRoundInfo();
     updateScoreBoard();
 
-    playerImageSrc = 'assets/images/placeholder.png';
-    computerImageSrc = 'assets/images/placeholder.png';
+   playerChoiceImage.src = 'assets/images/rock-paper-scissors-lizard-spock-clipart-lg.png';
+ computerChoiceImage.src = 'assets/images/rock-paper-scissors-lizard-spock-clipart-lg.png';
 
     enableChoiceButtons(false);
 }
@@ -151,6 +148,9 @@ function incrementTie() {
 function displayChoice(playerChoice, computerChoice) { 
     playerChoiceImage.src = `assets/images/${playerChoice}.png`;
     computerChoiceImage.src = `assets/images/${computerChoice}.png`;
+    
+    playerChoiceText.textContent = playerChoice;
+    computerChoiceText.textContent = computerChoice;
 }   
 
 function displayRoundResult(outcome) { 
@@ -166,7 +166,9 @@ function displayRoundResult(outcome) {
     }   
 }
 function updateScoreBoard() { 
-    scoreInfo.textContent = `Score - You: ${playerScore} | Computer: ${computerScore} | Ties: ${tieScore}`;
+    playerScoreEl.textContent = playerScore;
+  computerScoreEl.textContent = computerScore;
+  tieScoreEl.textContent = tieScore;
 }
 
 function updateRoundInfo () {
@@ -174,7 +176,7 @@ function updateRoundInfo () {
 }
 
 function enableChoiceButtons() {
-    const buttons = document.querySelectorAll('.choice-button');
+    const buttons = document.querySelectorAll('.control');
     buttons.forEach(button => {
         button.disabled = !gameActive;
     });
@@ -197,19 +199,20 @@ function endGame() {
 /**
  * Event Listeners
  */
-startBtnton = document.getElementById('start-button');
-restartButton = document.getElementById('restart-button');
-playerChoiceImage = document.getElementById('player-choice-image');
-computerChoiceImage = document.getElementById('computer-choice-image');
+
+playerChoiceImage = document.getElementById('player-image');
+computerChoiceImage = document.getElementById('computer-image');
 roundInfo = document.getElementById('round-info');
-scoreInfo = document.getElementById('score-info');
 resultMessage = document.getElementById('result-message');
 
 controlButtons.forEach((button, index) => {
     button.addEventListener('click', () => {
-    const choiceIndex = Number(button.dataset.choiceIndex);
+    const choiceIndex = Number(button.dataset.choice);
     runGame(choiceIndex);
     }
     );
 });
+startButton.addEventListener('click', startGame);
+restartButton.addEventListener('click', restartGame);
+
 restartGame();
