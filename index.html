@@ -19,7 +19,11 @@
     </header>
 
 <div class="game-area">
-    <h2>Make your choice:</h2>
+    <h2> To start press button!</h2>
+    <div> 
+        <button aria-label="Start!" class="btn-start"> Let's Start! </button>
+    </div>
+    <h3>Make your choice:</h3>
     <div class="choices-area">
     
     <button aria-label="Rock" data-choice="0" class="control"> <i class="fa-solid fa-hand-back-fist"></i> Rock</button>
@@ -29,9 +33,7 @@
     <button aria-label="Spock" data-choice="4" class="control"> <i class="fa-solid fa-hand-spock"></i> Spock</button>
     </div>
 
-<div> 
-        <button aria-label="Start!" class="btn-start"> Let's Start! </button>
-    </div>
+
 <!-- Display Player and Computer Choices -->
     <div class="round-display">
     <div class="choice">
@@ -49,8 +51,9 @@
 
 <div class="info-area">
 <div class="status-area" aria-live="polite">
+    <p class="start-message" id="result-message">Make your move!</p>
     <p id="round-info">Round: <span id="round-display">1 </span> / 5</p>
-    <p id="result-message">Make your move!</p>
+    
 </div>
 
 <!--Score Area-->
@@ -68,7 +71,25 @@
     </div>
     <script src="assets/js/script.js"></script>
     <footer> 
-        <p>&copy; 2025 Rock Paper Scissors Lizard Spock Game</p>
+        <p> Rock Paper Scissors Lizard Spock Game</p>
+        <div class="rules">
+        <p>Rules</p>
+        <p>Rock crushes Scissors & Lizard</p>
+        <p>Paper covers Rock & disproves Spock</p>
+        <p>Scissors cuts Paper & decapitates Lizard</p> 
+        <p>Lizard eats Paper & poisons Spock</p>
+        <p>Spock smashes Scissors & vaporizes Rock</p>
+        </div>
+        <div class="how-to-play">
+        <p>How to Play</p>
+        <p>Click 'Let's Start!' to begin the game.</p>
+        <p>Select your choice from Rock, Paper, Scissors, Lizard, or Spock.</p>
+        <p>The computer will randomly select its choice.</p>
+        <p>The winner of each round is determined based on the rules above.</p>
+        <p>The game ends after5 rounds!</p>
+        </div>
+
+        <p>&copy; 2025</p>
     </footer>
 </body>
 </html>
