@@ -9,6 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <title>Rock, Paper, Scissors, Lizard, Spock Game</title>
 </head>
 <body>
@@ -27,7 +29,9 @@
     <button aria-label="Spock" data-choice="4" class="control"> <i class="fa-solid fa-hand-spock"></i> Spock</button>
     </div>
 
-
+<div> 
+        <button aria-label="Start!" class="btn-start"> Let's Start! </button>
+    </div>
 <!-- Display Player and Computer Choices -->
     <div class="round-display">
     <div class="choice">
@@ -35,9 +39,7 @@
         <img id="player-image" src="assets/images/rock-paper-scissors-lizard-spock-clipart-lg.png" alt="Rock Paper Scissors Lizard Spock"/>
         <p id="player-choice">—</p>
     </div>
-    <div> 
-        <button aria-label="Start!" class="btn-start"> Let's Start! </button>
-    </div>
+    
     <div class="choice">
         <p class="computer-choice">Computer chose:</p>
         <img id="computer-image" src="assets/images/rock-paper-scissors-lizard-spock-clipart-lg.png" alt="Rock Paper Scissors Lizard Spock"/>
@@ -45,7 +47,7 @@
     </div>
 </div>
 
-<!-- Round info Needs to be updated!!!!!-->
+<div class="info-area">
 <div class="status-area" aria-live="polite">
     <p id="round-info">Round: <span id="round-display">1 </span> / 5</p>
     <p id="result-message">Make your move!</p>
@@ -62,7 +64,7 @@
     <div class="controls-area">
     <button aria-label="Restart Game" id="restart-btn">Restart Game</button>
 </div>
-
+</div>
     </div>
     <script src="assets/js/script.js"></script>
     <footer> 

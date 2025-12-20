@@ -27,7 +27,6 @@ let gameActive = false;
 
 let playerChoiceImage;
 let computerChoiceImage;
-let roundInfo;
 let resultMessage;
 
 
@@ -42,20 +41,16 @@ const playerChoiceText = document.getElementById('player-choice');
 const computerChoiceText = document.getElementById('computer-choice');
 
 const roundDisplay = document.getElementById('round-display');
-const scoreDisplay = document.getElementById('score-display');
+const tieScoreEl = document.getElementById('tie-score');
 
 const playerScoreEl = document.getElementById('player-score');
 const computerScoreEl = document.getElementById('computer-score');
-const tieScoreEl = document.getElementById('tie-score');
-
-const playerImageSrcEl = document.getElementById('player-image');
-const computerImageSrcEl = document.getElementById('computer-image');
 /**
  * Functions
  */
 function startGame() {
     gameActive = true;
-    resultMessage.textContent = 'Game Started! Make your choice.';
+    resultMessage.textContent = 'Make Your move!';
     enableChoiceButtons(true);
 }
 
@@ -65,19 +60,24 @@ function restartGame() {
     computerScore = 0;
     tieScore = 0;
     gameActive = false;
-    playerChoiceImage.src = '';
-    computerChoiceImage.src = '';
-    roundInfo.textContent = '';
+
+ playerChoiceText.textContent = '—';
+  computerChoiceText.textContent = '—';
+
+     playerChoiceImage.src = 'assets/images/rock-paper-scissors-lizard-spock-clipart-lg.png';
+     computerChoiceImage.src = 'assets/images/rock-paper-scissors-lizard-spock-clipart-lg.png';
+
+  
     resultMessage.textContent = 'Game Restarted! Click Start to play again.';
     updateRoundInfo();
     updateScoreBoard();
-
-   playerChoiceImage.src = 'assets/images/rock-paper-scissors-lizard-spock-clipart-lg.png';
- computerChoiceImage.src = 'assets/images/rock-paper-scissors-lizard-spock-clipart-lg.png';
-
     enableChoiceButtons(false);
+
 }
 
+function updateRoundInfo() {
+  roundDisplay.textContent = round;
+}
 
 /**
  * Main Game Logic
@@ -148,9 +148,9 @@ function incrementTie() {
 function displayChoice(playerChoice, computerChoice) { 
     playerChoiceImage.src = `assets/images/${playerChoice}.png`;
     computerChoiceImage.src = `assets/images/${computerChoice}.png`;
-    
-    playerChoiceText.textContent = playerChoice;
-    computerChoiceText.textContent = computerChoice;
+
+    playerChoiceText.textContent = playerChoice[0].toUpperCase() + playerChoice.slice(1);
+    computerChoiceText.textContent = computerChoice[0].toUpperCase() + computerChoice.slice(1);
 }   
 
 function displayRoundResult(outcome) { 
@@ -169,10 +169,6 @@ function updateScoreBoard() {
     playerScoreEl.textContent = playerScore;
   computerScoreEl.textContent = computerScore;
   tieScoreEl.textContent = tieScore;
-}
-
-function updateRoundInfo () {
-    roundInfo.textContent = `Round ${round} of ${maxRounds}`;
 }
 
 function enableChoiceButtons() {
@@ -202,15 +198,13 @@ function endGame() {
 
 playerChoiceImage = document.getElementById('player-image');
 computerChoiceImage = document.getElementById('computer-image');
-roundInfo = document.getElementById('round-info');
 resultMessage = document.getElementById('result-message');
 
-controlButtons.forEach((button, index) => {
+controlButtons.forEach (button => {
     button.addEventListener('click', () => {
     const choiceIndex = Number(button.dataset.choice);
     runGame(choiceIndex);
-    }
-    );
+    });
 });
 startButton.addEventListener('click', startGame);
 restartButton.addEventListener('click', restartGame);

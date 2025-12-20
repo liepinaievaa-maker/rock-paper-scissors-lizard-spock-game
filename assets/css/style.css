@@ -34,12 +34,12 @@ header {
     padding: 20px;
     text-align: center;
 }
-.game-area p {
-    font-size: 1.5rem;
-    color: #333333;
-}
-.controls-area {
-    margin-top: 20px;
+
+.info-area {
+    background-color: rgb(226, 235, 244);
+    margin: 20px 0 20px 0;
+    font-size: 1.2rem;
+    color: black;
 }
 button {
     background-color: #4A90E2;
@@ -55,12 +55,12 @@ button:hover {
     color: #4A90E2;
 }
 .btn-start {
-    background-color: #4A90E2;
-    color: white;
+    background-color: white;
+    color: black;
     margin: 20px;
     font-size: 1.2rem;
-    width: 25%;
-    height: 50px;
+    width: 15%;
+    height: 40px;
 }
 .choice {
     display: flex;
