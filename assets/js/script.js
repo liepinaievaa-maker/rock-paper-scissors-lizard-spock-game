@@ -92,34 +92,55 @@ function runGame(playerChoiceIndex) {
     }
 }
 
-function checkAnswer() {
-
+/** 
+ * Wins/Losses/Ties Logic
+ */
+function checkAnswer(playerChoice, computerChoice) {
+    if (playerChoice === computerChoice) {
+        return 'tie';
+    } else if (beats[playerChoice] && beats[playerChoice].includes(computerChoice)) {
+        return 'win';
+    } else {
+        return 'lose';
+    }
 }
 
 function calculateCorrectAnswer () {
-
+    const calculatedIndex = Math.floor(Math.random() * choice.length);
+    return choice[calculatedIndex];
 }
 
 function incrementScore() { 
-
+    playerScore++;
 }
 
 function incrementWrongAnswer() {
-
+    computerScore++;
 }
 
 function incrementTie() {
-
+    tieScore++;
 }
+
 /**
  * Display photos and results
  */
-function displayChoice() {
+function displayChoice(playerChoice, computerChoice) { 
+    playerChoiceImage.src = `assets/images/${playerChoice}.png`;
+    computerChoiceImage.src = `assets/images/${computerChoice}.png`;
+}   
 
-}
-
-function displayRoundResult() { 
-
+function displayRoundResult(outcome) { 
+    if (outcome === 'win') {
+        resultMessage.textContent = 'Good job!You Win this Round!';
+        incrementScore();
+    } else if (outcome === 'lose') {
+        resultMessage.textContent = 'You Lose this Round! Maybe Next time!';
+        incrementWrongAnswer();
+    } else {
+        resultMessage.textContent = 'This Round is a Tie!';
+        incrementTie();
+    }   
 }
 
 function updateRoundInfo () {
