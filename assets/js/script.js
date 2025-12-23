@@ -45,12 +45,19 @@ const tieScoreEl = document.getElementById('tie-score');
 
 const playerScoreEl = document.getElementById('player-score');
 const computerScoreEl = document.getElementById('computer-score');
+
+const choicesArea = document.getElementById('choices-area');
+const chooseTitle = document.getElementById('choose-title');
 /**
  * Functions
  */
 function startGame() {
     gameActive = true;
     resultMessage.textContent = 'Make Your move!';
+
+    choicesArea.style.display = 'flex';
+  chooseTitle.style.display = 'block';
+
     enableChoiceButtons();
 }
 
@@ -61,8 +68,8 @@ function restartGame() {
     tieScore = 0;
     gameActive = false;
 
- playerChoiceText.textContent = '—';
-  computerChoiceText.textContent = '—';
+ playerChoiceText.textContent = '';
+  computerChoiceText.textContent = '';
 
      playerChoiceImage.src = 'assets/images/rock-paper-scissors-lizard-spock-clipart-lg.png';
      computerChoiceImage.src = 'assets/images/rock-paper-scissors-lizard-spock-clipart-lg.png';
@@ -71,8 +78,10 @@ function restartGame() {
     resultMessage.textContent = 'Game Restarted! Click Start to play again.';
     updateRoundInfo();
     updateScoreBoard();
-    enableChoiceButtons(false);
+    enableChoiceButtons();
 
+    choicesArea.style.display = 'none';
+  chooseTitle.style.display = 'none';
 }
 
 function updateRoundInfo() {
@@ -147,7 +156,9 @@ function incrementTie() {
  */
 function displayChoice(playerChoice, computerChoice) { 
     playerChoiceImage.src = `assets/images/${playerChoice}.png`;
+    playerChoiceImage.alt = `Player chose ${playerChoice}`;
     computerChoiceImage.src = `assets/images/${computerChoice}.png`;
+    computerChoiceImage.alt = `Computer chose ${computerChoice}`;
 
     playerChoiceText.textContent = playerChoice[0].toUpperCase() + playerChoice.slice(1);
     computerChoiceText.textContent = computerChoice[0].toUpperCase() + computerChoice.slice(1);

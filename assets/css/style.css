@@ -118,6 +118,10 @@ button:hover {
   gap: 10px;
   margin: 5px 0 5px 0;
 }
+#choices-area,
+#choose-title {
+  display: none;
+}
 
 footer {
     color: white;
