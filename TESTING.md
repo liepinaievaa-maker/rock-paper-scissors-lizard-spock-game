@@ -111,16 +111,21 @@ The game was tested manually to confirm that all interactive elements respond co
 
 ---
 
+
 | **Feature** | **Test action** | **Expected Result** | **Outcome** | **Comments** |
 |-------------------------------------|-----------|----------------|----------|-----------|
-| Game buttons | Click each option (Rock, Paper, Scissors, Lizard, Spock) | Player choice is registered | Pass |  |
-| Computer choice | Start a round | Computer selects a random option | Pass | |
-| Rule logic | Play multiple rounds with different combinations | Correct win/lose/tie result displayed | Pass | |
-| Score tracking | Win, lose, or tie a round | Scores update correctly | Pass | |
-| Round limit | Complete all rounds | Game ends and final result shown | Pass | |
-| Restart button | Click restart during or after game | Scores and rounds reset | Pass | |
-| Visual feedback | Complete a round | Player and computer choices displayed | Pass | |
-| Status messages | Start and play the game | Clear guidance shown on screen | Pass | |
+| Game buttons | Click each option (Rock, Paper, Scissors, Lizard, Spock) | Player choice is registered | Pass | Input correctly passed via data attributes |
+| Computer choice | Start a round | Computer selects a random option | Pass | Uses Math.random for unpredictability |
+| Rule logic | Play multiple rounds with different combinations | Correct win/lose/tie result displayed | Pass | Extended rule set tested |
+| Score tracking | Win, lose, or tie a round | Scores update correctly | Pass | DOM updated in real time |
+| Round limit | Complete all rounds | Game ends and final result shown | Pass | Prevents infinite gameplay |
+| Restart button | Click restart during or after game | Scores and rounds reset | Pass | Game state fully reset |
+| Visual feedback | Complete a round | Player and computer choices displayed | Pass | Images and text update together |
+| Status messages | Start and play the game | Clear guidance shown on screen | Pass | Helps first-time users |
+| Start button visibility control | Load page without clicking Start | Game choice buttons are hidden | Pass | Prevents interaction before game starts |
+| Start button interaction | Click Start button | Game choice buttons appear and become clickable | Pass | Improves user flow |
+| Restart visibility reset | Click Restart after starting game | Game choice buttons are hidden again until Start is clicked | Pass | Ensures clean game reset |
+
 
 ---
 
