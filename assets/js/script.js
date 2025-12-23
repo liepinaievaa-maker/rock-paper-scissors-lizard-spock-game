@@ -51,7 +51,7 @@ const computerScoreEl = document.getElementById('computer-score');
 function startGame() {
     gameActive = true;
     resultMessage.textContent = 'Make Your move!';
-    enableChoiceButtons(true);
+    enableChoiceButtons();
 }
 
 function restartGame() {

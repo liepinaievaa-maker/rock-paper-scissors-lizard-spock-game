@@ -41,7 +41,7 @@ header {
     background-color: rgb(226, 235, 244);
     width: 70%;
     max-width: 700px;
-    line-height: 10px;
+    line-height: 1.4;
     margin: 5px auto 5px auto;
     font-size: 1rem;
     color: black;
