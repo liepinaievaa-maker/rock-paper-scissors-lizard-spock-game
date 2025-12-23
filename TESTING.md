@@ -71,7 +71,7 @@ The game was tested manually to confirm that all interactive elements respond co
 
 - Lighthouse on Desktop version
 
-![Lighthouse on Desktop](documentation/lighthouse-game.PNG)
+![Lighthouse on Desktop](documentation/lighthouse-desktop.PNG)
 
 - Lighthouse on Mobile version
 
