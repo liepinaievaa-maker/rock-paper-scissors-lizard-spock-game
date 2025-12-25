@@ -125,6 +125,7 @@ The game was tested manually to confirm that all interactive elements respond co
 | Start button visibility control | Load page without clicking Start | Game choice buttons are hidden | Pass | Prevents interaction before game starts |
 | Start button interaction | Click Start button | Game choice buttons appear and become clickable | Pass | Improves user flow |
 | Restart visibility reset | Click Restart after starting game | Game choice buttons are hidden again until Start is clicked | Pass | Ensures clean game reset |
+| Keyboard shortcuts | Press Enter (before game starts) / Press R (any time) | Enter starts the game when inactive; R restarts the game | Pass | Optional keyboard support added for accessibility and user control |
 
 
 ---

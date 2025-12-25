@@ -223,10 +223,12 @@ startButton.addEventListener('click', startGame);
 restartButton.addEventListener('click', restartGame);
 
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter' && !gameActive) {
+     if (event.repeat) return; 
+
+     if (event.key === 'Enter' && !gameActive) {
     startGame();
   }
-
+  
   if (event.key.toLowerCase() === 'r') {
     restartGame();
   }
