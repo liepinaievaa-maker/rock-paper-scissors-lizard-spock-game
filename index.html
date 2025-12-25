@@ -16,22 +16,22 @@
 </head>
 <body>
     <header> 
-        <h1 class="heading"><i class="fa-solid fa-hand-peace"></i> Rock | Paper | Scissors | Lizard | Spock Game <i class="fa-solid fa-hand-lizard"></i></h1>
+        <h1 class="heading"><i class="fa-solid fa-hand-peace" aria-hidden="true"></i> Rock | Paper | Scissors | Lizard | Spock Game <i class="fa-solid fa-hand-lizard" aria-hidden="true"></i></h1>
     </header>
 
 <main class="game-area">
-    <h2> To start press button!</h2>
+    <h2>Press Start to begin</h2>
     <div> 
-        <button aria-label="Start!" class="btn-start"> Start! </button>
+        <button type="button" aria-label="Start!" class="btn-start"> Start!</button>
     </div>
     <h3 id="choose-title">Make your choice:</h3>
     <div class="choices-area" id="choices-area">
     
-    <button aria-label="Rock" data-choice="0" class="control"> <i class="fa-solid fa-hand-back-fist"></i> Rock</button>
-    <button aria-label="Paper" data-choice="1" class="control"> <i class="fa-solid fa-hand"></i> Paper</button>
-    <button aria-label="Scissors" data-choice="2" class="control"> <i class="fa-solid fa-hand-scissors"></i> Scissors</button>
-    <button aria-label="Lizard" data-choice="3" class="control"> <i class="fa-solid fa-hand-lizard"></i> Lizard</button>
-    <button aria-label="Spock" data-choice="4" class="control"> <i class="fa-solid fa-hand-spock"></i> Spock</button>
+    <button type="button" aria-label="Rock" data-choice="0" class="control"><i class="fa-solid fa-hand-back-fist" aria-hidden="true"></i> Rock</button>
+    <button type="button" aria-label="Paper" data-choice="1" class="control"><i class="fa-solid fa-hand" aria-hidden="true"></i> Paper</button>
+    <button type="button" aria-label="Scissors" data-choice="2" class="control"><i class="fa-solid fa-hand-scissors" aria-hidden="true"></i> Scissors</button>
+    <button type="button" aria-label="Lizard" data-choice="3" class="control"><i class="fa-solid fa-hand-lizard" aria-hidden="true"></i> Lizard</button>
+    <button type="button" aria-label="Spock" data-choice="4" class="control"><i class="fa-solid fa-hand-spock" aria-hidden="true"></i> Spock</button>
     </div>
 
 
@@ -39,21 +39,21 @@
     <div class="round-display">
     <div class="choice">
         <p class="player-choice">You chose:</p>
-        <img id="player-image" src="assets/images/rock-paper-scissors-lizard-spock-clipart-lg.png" alt="">
+        <img id="player-image" src="assets/images/rock-paper-scissors-lizard-spock-clipart-lg.png" alt="Player has not made a choice yet">
         <p id="player-choice"></p>
     </div>
     
     <div class="choice">
         <p class="computer-choice">Computer chose:</p>
-        <img id="computer-image" src="assets/images/rock-paper-scissors-lizard-spock-clipart-lg.png" alt="">
+        <img id="computer-image" src="assets/images/rock-paper-scissors-lizard-spock-clipart-lg.png" alt="Computer has not made a choice yet">
         <p id="computer-choice"></p>
     </div>
 </div>
 
 <div class="info-area">
-<div class="status-area" aria-live="polite">
-    <p class="start-message boxes" id="result-message">Make your move!</p>
-    <p id="round-info">Round: <span id="round-display">1 </span> / 5</p>
+<div class="status-area">
+    <p class="start-message boxes" id="result-message" aria-live="polite">Make your move!</p>
+    <p id="round-info">Round: <span id="round-display">1</span> / 5</p>
     
 </div>
 
@@ -66,7 +66,7 @@
 
 <!--Restart Game Button-->
     <div class="controls-area">
-    <button aria-label="Restart Game" id="restart-btn">Restart Game</button>
+    <button type="button" aria-label="Restart Game" id="restart-btn">Restart Game</button>
 </div>
 </div>
 </main>
