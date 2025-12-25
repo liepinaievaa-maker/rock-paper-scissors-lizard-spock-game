@@ -53,7 +53,7 @@ const chooseTitle = document.getElementById('choose-title');
  */
 function startGame() {
     gameActive = true;
-    resultMessage.textContent = 'Make Your move!';
+    resultMessage.textContent = 'Make your move!';
 
     choicesArea.style.display = 'flex';
   chooseTitle.style.display = 'block';
@@ -74,8 +74,11 @@ function restartGame() {
      playerChoiceImage.src = 'assets/images/rock-paper-scissors-lizard-spock-clipart-lg.png';
      computerChoiceImage.src = 'assets/images/rock-paper-scissors-lizard-spock-clipart-lg.png';
 
+     playerChoiceImage.alt = 'Player has not made a choice yet';
+     computerChoiceImage.alt = 'Computer has not made a choice yet';
+
   
-    resultMessage.textContent = 'Game Restarted! Click Start to play again.';
+    resultMessage.textContent = 'Game restarted! Click Start to play again.';
     updateRoundInfo();
     updateScoreBoard();
     enableChoiceButtons();
@@ -166,7 +169,7 @@ function displayChoice(playerChoice, computerChoice) {
 
 function displayRoundResult(outcome) { 
     if (outcome === 'win') {
-        resultMessage.textContent = 'Good job!You Win this Round!';
+        resultMessage.textContent = 'Good job! You Win this Round!';
         incrementScore();
     } else if (outcome === 'lose') {
         resultMessage.textContent = 'You Lose this Round! Maybe Next time!';
@@ -183,17 +186,16 @@ function updateScoreBoard() {
 }
 
 function enableChoiceButtons() {
-    const buttons = document.querySelectorAll('.control');
-    buttons.forEach(button => {
-        button.disabled = !gameActive;
-    });
+  controlButtons.forEach(button => {
+    button.disabled = !gameActive;
+  });
 }
 /**
  * End Game
  */
 function endGame() { 
     gameActive = false;
-    enableChoiceButtons(false);
+    enableChoiceButtons();
     if (playerScore > computerScore) {
         resultMessage.textContent = `Congratulations! You Won the Game!(${playerScore} - ${computerScore})`;
     } else if (computerScore > playerScore) {
@@ -219,5 +221,15 @@ controlButtons.forEach (button => {
 });
 startButton.addEventListener('click', startGame);
 restartButton.addEventListener('click', restartGame);
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter' && !gameActive) {
+    startGame();
+  }
+
+  if (event.key.toLowerCase() === 'r') {
+    restartGame();
+  }
+});
 
 restartGame();
